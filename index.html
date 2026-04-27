@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIC Student Hub | HaUI</title>
-    <link rel="icon" type="image/png" href="haui_logo.png">
+    <link rel="icon" type="image/jpeg" href="logoaic.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=8">
 </head>
-<body>
+<body class="light-mode">
 
     <nav>
         <div class="logo" style="display: flex; align-items: center; gap: 10px;">
-            <img src="haui_logo.png" alt="HaUI Logo" style="height: 40px; border-radius: 4px;">
+            <img src="logoaic.jpg" alt="AIC Logo" style="height: 40px; border-radius: 4px;">
             <span class="gradient-text">AIC Hub</span>
         </div>
         <button class="hamburger" id="hamburger">☰</button>
         <ul class="nav-links" id="nav-links">
             <li><a class="nav-btn active" data-target="home">Trang Chủ</a></li>
             <li><a class="nav-btn" data-target="labs">Phòng Nghiên Cứu</a></li>
+            <li><a class="nav-btn" data-target="student-labs">Lab Sinh Viên</a></li>
+            <li><a class="nav-btn" data-target="research-directions">Hướng Nghiên Cứu</a></li>
             <li><a class="nav-btn" data-target="achievements">Thành Tựu</a></li>
             <li><a class="nav-btn" data-target="recruitment">Tuyển Dụng</a></li>
             <li><a class="nav-btn" data-target="chatbot">Trợ Lý Ảo</a></li>
-            <li><button id="theme-toggle" class="btn-theme" aria-label="Toggle Theme">☀️</button></li>
+            <li>
+                <button id="theme-toggle" class="btn-theme" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </li>
         </ul>
     </nav>
 
@@ -52,27 +59,30 @@
                 <h2><span class="gradient-text">Phòng Nghiên Cứu</span></h2>
                 <p>Khám phá các lĩnh vực nghiên cứu chuyên sâu tại AIC.</p>
             </div>
-            <div class="cards-grid">
-                <a href="https://sict.haui.edu.vn/vn/tin-tuc/hoi-thao-khoa-hoc-tri-tue-nhan-tao-va-ung-dung-trong-cong-nghiep-ket-noi-tri-thuc-dinh-hinh-tuong-lai-cong-nghe/71719" target="_blank" class="card" style="text-decoration: none; color: inherit; cursor: pointer;">
-                    <img src="ai_core.png" alt="AI Core Lab" class="card-img" onerror="this.src='https://via.placeholder.com/400x200/1a1d2d/ffffff?text=AI+Core+Lab'">
-                    <h3>AI Core Lab</h3>
-                    <p>Tập trung nghiên cứu các thuật toán cốt lõi của Trí tuệ Nhân tạo. Nơi đào tạo và phát triển các mô hình nền tảng.</p>
-                    <div class="tags">
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Computer Vision</span>
-                        <span class="tag">NLP</span>
-                    </div>
-                </a>
-                <a href="https://sict.haui.edu.vn/vn/tin-tuc/seminar-ai-trong-fintech-huong-nghien-cuu-lien-nganh-dinh-hinh-khong-gian-hoc-thuat-ket-noi-tri-tue-nhan-tao-va-kinh-te-tai-chinh/71583" target="_blank" class="card" style="text-decoration: none; color: inherit; cursor: pointer;">
-                    <img src="ai_app.png" alt="AI Application Lab" class="card-img" onerror="this.src='https://via.placeholder.com/400x200/1a1d2d/ffffff?text=AI+App+Lab'">
-                    <h3>AI Application Lab</h3>
-                    <p>Nghiên cứu ứng dụng công nghệ AI vào giải quyết các bài toán thực tế trong công nghiệp và đời sống.</p>
-                    <div class="tags">
-                        <span class="tag">Fintech</span>
-                        <span class="tag">Smart Industry</span>
-                        <span class="tag">IoT</span>
-                    </div>
-                </a>
+            <div class="cards-grid" id="articles-container">
+                <!-- Các bài báo sẽ được render tự động bằng JavaScript ở đây -->
+            </div>
+        </section>
+
+        <!-- Student Labs Section -->
+        <section id="student-labs">
+            <div class="section-header">
+                <h2>Lab Dành Cho <span class="gradient-text">Sinh Viên</span></h2>
+                <p>Môi trường thực chiến giúp sinh viên khám phá, hiện thực hóa ý tưởng và triển khai dự án AI thực tế.</p>
+            </div>
+            <div class="cards-grid" id="student-labs-container">
+                <!-- JS sẽ render các lab sinh viên ở đây -->
+            </div>
+        </section>
+
+        <!-- Research Directions Section -->
+        <section id="research-directions">
+            <div class="section-header">
+                <h2><span class="gradient-text">Hướng Nghiên Cứu</span></h2>
+                <p>4 lĩnh vực cốt lõi được tập trung phát triển và nghiên cứu chuyên sâu tại AIC.</p>
+            </div>
+            <div class="cards-grid" id="research-container">
+                <!-- JS sẽ render các hướng nghiên cứu ở đây -->
             </div>
         </section>
 
@@ -84,19 +94,16 @@
             </div>
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="mèo.jpg" alt="GS.TSKH Lê Thị Hoài An" class="team-avatar" onerror="this.src='https://via.placeholder.com/150/1a1d2d/ffffff?text=GS.TSKH'">
                     <h3>GS.TSKH Lê Thị Hoài An</h3>
-                    <p>Cố vấn Học thuật Cấp cao</p>
+                    <p>Giám đốc khoa học</p>
                 </div>
                 <div class="team-member">
-                    <img src="mèo.jpg" alt="TS. Đặng Trọng Hợp" class="team-avatar" onerror="this.src='https://via.placeholder.com/150/1a1d2d/ffffff?text=TS.DTH'">
                     <h3>TS. Đặng Trọng Hợp</h3>
-                    <p>Trưởng khoa CNTT, HaUI</p>
+                    <p>Giám đốc điều hành</p>
                 </div>
                 <div class="team-member">
-                    <img src="mèo.jpg" alt="TS. Nguyễn Mạnh Cường" class="team-avatar" onerror="this.src='https://via.placeholder.com/150/1a1d2d/ffffff?text=TS.NMC'">
                     <h3>TS. Nguyễn Mạnh Cường</h3>
-                    <p>Giám đốc Trung tâm AIC</p>
+                    <p>Phó giám đốc</p>
                 </div>
             </div>
         </section>
@@ -144,7 +151,12 @@
                     <li>Có tư duy logic tốt, tinh thần học hỏi cao.</li>
                     <li>Cam kết dành ít nhất 15h/tuần cho lab.</li>
                 </ul>
-                <a href="mailto:nguyenninh10112006@gmail.com?subject=Đăng ký tham gia AIC Student Hub" class="btn-primary">Đăng Ký Ngay</a>
+                <button class="btn-primary js-secure-mail" 
+                    data-user="bmd1eWVubmluaDEwMTEyMDA2" 
+                    data-domain="Z21haWwuY29t" 
+                    data-subject="Đăng ký tham gia AIC Student Hub">
+                    Đăng Ký Ngay
+                </button>
             </div>
         </section>
 

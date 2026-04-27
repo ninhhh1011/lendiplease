@@ -1,26 +1,29 @@
 :root {
-    --bg-dark: #0a0b10;
-    --bg-card: rgba(20, 22, 37, 0.7);
-    --text-primary: #ffffff;
-    --text-secondary: #a0a5b1;
-    --accent-blue: #1565C0;
-    --accent-red: #D32F2F;
-    --accent-yellow: #FBC02D;
+    --bg-dark: #1e293b;
+    --bg-card: rgba(30, 41, 59, 0.8);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-blue: #3b82f6;
+    --accent-red: #f43f5e;
+    --accent-yellow: #fbbf24;
     --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-red));
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.15);
     --nav-height: 80px;
-    --nav-bg: rgba(10, 11, 16, 0.8);
-    --chat-header-bg: rgba(0, 0, 0, 0.2);
+    --nav-bg: rgba(30, 41, 59, 0.85);
+    --chat-header-bg: rgba(0, 0, 0, 0.15);
 }
 
 body.light-mode {
-    --bg-dark: #f4f6f9;
-    --bg-card: rgba(255, 255, 255, 0.9);
-    --text-primary: #1a1d2d;
-    --text-secondary: #4a5568;
-    --glass-border: rgba(0, 0, 0, 0.15);
-    --nav-bg: rgba(255, 255, 255, 0.9);
-    --chat-header-bg: rgba(0, 0, 0, 0.05);
+    --bg-dark: #ffffff;
+    --bg-card: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-blue: #2563eb;
+    --accent-red: #e11d48;
+    --accent-yellow: #f59e0b;
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --chat-header-bg: rgba(0, 0, 0, 0.03);
 }
 
 * {
@@ -117,14 +120,29 @@ nav {
 .btn-theme {
     background: transparent;
     border: none;
-    font-size: 1.2rem;
     cursor: pointer;
     color: var(--text-primary);
     transition: transform 0.3s;
     padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .btn-theme:hover {
     transform: scale(1.1);
+}
+.btn-theme svg {
+    width: 24px;
+    height: 24px;
+}
+.btn-theme .moon-icon {
+    display: none;
+}
+body.light-mode .btn-theme .moon-icon {
+    display: block;
+}
+body.light-mode .btn-theme .sun-icon {
+    display: none;
 }
 
 /* Main Content & Sections */
@@ -236,6 +254,12 @@ section {
     gap: 2rem;
 }
 
+#student-labs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
 .card {
     background: var(--bg-card);
     border: 1px solid var(--glass-border);
@@ -258,7 +282,7 @@ section {
     border-radius: 8px;
     object-fit: cover;
     margin-bottom: 1.5rem;
-    background-color: #1a1d2d;
+    background-color: var(--chat-header-bg);
 }
 
 .card h3 {
@@ -511,7 +535,7 @@ footer p:last-child {
     height: 4px;
 }
 .quick-reply-btn {
-    background: rgba(255,255,255,0.05);
+    background: var(--chat-header-bg);
     border: 1px solid var(--glass-border);
     color: var(--text-primary);
     padding: 0.4rem 0.8rem;
@@ -567,6 +591,10 @@ footer p:last-child {
         align-items: flex-start;
         gap: 2rem;
         margin-top: 2rem;
+    }
+    
+    #student-labs-container {
+        grid-template-columns: 1fr;
     }
 }
 
