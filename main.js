@@ -147,14 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const articlesContainer = document.getElementById('articles-container');
     if (articlesContainer) {
         articlesContainer.innerHTML = articles.map(article => `
-            <a href="${article.link}" target="_blank" class="card fade-in" style="text-decoration: none; color: inherit; cursor: pointer;">
-                <img src="${article.img}" alt="${article.title}" class="card-img" onerror="this.src='https://via.placeholder.com/400x200/1a1d2d/ffffff?text=Image+Not+Found'">
-                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">${article.title}</h3>
-                <p style="font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">${article.desc}</p>
+            <a href="${article.link}" target="_blank" class="card fade-in" style="text-decoration: none; color: inherit; cursor: pointer; justify-content: space-between;">
+                <div>
+                    <h3 style="font-size: 1.15rem; margin-bottom: 0.6rem;">${article.title}</h3>
+                    <p style="font-size: 0.95rem;">${article.desc}</p>
+                </div>
+                <span style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent-blue); font-weight: 600;">Xem chi tiết →</span>
             </a>
         `).join('');
         
-        // Kích hoạt lại observer cho các card mới sinh ra
         document.querySelectorAll('#articles-container .card.fade-in').forEach(el => observer.observe(el));
     }
 
@@ -262,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (studentLabsContainer) {
         studentLabsContainer.innerHTML = studentLabs.map(lab => `
             <div class="card fade-in" style="display: flex; flex-direction: column; text-align: left; cursor: default;">
-                <img src="${lab.img}" alt="${lab.title}" class="card-img" onerror="this.src='https://via.placeholder.com/400x200/1a1d2d/ffffff?text=Image+Not+Found'">
                 <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); text-align: center;">${lab.title}</h3>
                 
                 <h4 style="color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 1.1rem;">Mục tiêu và nhiệm vụ</h4>
